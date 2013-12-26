@@ -39,7 +39,7 @@ from fractions import gcd
 #   Found this useful/helpful? Donate here:
 #   mardilv
 #   btc:    1PkCFatY7jgxY8BFaZe1YeL1baa8G7tVuR
-#   ltc:
+#   ltc:    LdSgAUcFed3szKGSmYQgFcFJvw9HJyAsHP
 ######################################################
 runningFlag = True
 #dictionaries for storing info
