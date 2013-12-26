@@ -1,0 +1,40 @@
+{
+"update_interval": 	5,
+"use": 		true,
+"pools":
+    {
+    "Middlecoin":
+        {	
+        "display":      true,
+        "currency":     "BTC",
+        "wallet":       "1PkCFatY7jgxY8BFaZe1YeL1baa8G7tVuR",
+        "adress":       "http://middlecoin.com/json",
+        "webapi":       "middlecoin",
+        "simple_info":  false,
+	"estimates":	["USD", "EUR", "JPY" ],
+	"estimates2":	[ "paid", "total", "unpaid" ]
+        },
+    "ftc.d2.cc":
+        {	
+        "display":      true,
+        "currency":     "FTC",
+        "adress":       "https://ftc.d2.cc/",
+        "webapi":       "common",
+        "api_key":      "580f22610cd0971fd8c453ddd9be854379ea7a22b8f5a5ddf9e680f2f9151340",
+        "simple_info":  false,
+	"estimates":	["USD"],
+	"estimates2":	["paid", "total", "round_estimate", "balance"]
+        },
+    "fst2":
+        {	
+        "display":      true,
+        "currency":     "FST",
+        "id":       	"718",
+        "adress":       "http://fst.zabmail.ru/",
+        "webapi":       "alt",
+        "api_key":      "12cb383e95ede387b1d60a0c3bd1f062edaaee10a2aafbf00d647b1ca48ae57c",
+	"estimates":	["USD", "BTC"],
+	"estimates2":	["paid_out"]
+        }
+    }
+}

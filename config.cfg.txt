@@ -1,0 +1,4 @@
+{
+"blink":	0.05,
+"clear":	true
+}
