@@ -148,12 +148,10 @@ example:
             "display":          true,
             "simple_info":      true,
             "estimate_mode":    "last",
-    	"FIAT":  [
-    		"USD", "EUR"
-    		],
-            "coins": [
-                "BTC", "LTC"
-                	],
+    	"rates":  {
+    		"1":{"BTC":"USD"},
+    		"2":{"BTC":"EUR"}
+    		},
      	"webapi":           "BTC-E"
             },
         "Mt.Gox":
@@ -161,25 +159,20 @@ example:
             "display":          true,
             "simple_info":      false,
     	"estimate_mode":    "average",
-            "FIAT":  [
-    		"JPY"
-    		],
-            "coins": [
-                "BTC"
-                	],
+    	"rates":  {
+    		"1":{"BTC":"JPY"},
+    		"2":{"BTC":"USD"}
+    		},
     	"webapi":           "Mt.Gox"
             },
         "Bitstamp":
             {	
             "display":          true,
-            "simple_info":      true,
-    	"estimate_mode":    "last",
-            "FIAT":  [
-    		"USD"
-    		],
-            "coins": [
-                "BTC"
-                	],
+            "simple_info":      false,
+    	"estimate_mode":    "low",
+            "rates":  {
+    		"1":{"BTC":"USD"}
+    		},
     	"webapi":           "Bitstamp"
             },
         
@@ -188,7 +181,8 @@ example:
             "display":          true,
             "simple_info":      true,
     	"rates":  {
-    		"FST":"BTC", "LTC":"BTC"
+    		"1":{"FST":"BTC"},
+    		"2":{"FST":"LTC"}
     		},
     	"webapi":           "Cryptsy",
     	"estimate_mode":    "last"
@@ -198,6 +192,7 @@ example:
         }  
       
     }
+
     
 unlike pools, exchanges have distinct apis so you can't add any other in this file unless module for its api has been added to program
 
@@ -214,6 +209,8 @@ aside from that only configurable things are:
     Bitstamp: average, last, low, high
     
     Mt.Gox: average, last, low, high
+    
+  "rates" - here you can add which exchange rates program should get from exchange to use it for displaying and estimating balances, input as shown in example
     
     
       
