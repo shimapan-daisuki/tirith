@@ -7,8 +7,8 @@ def update( name, settings, data ):
 
     
     adress = "https://www.bitstamp.net/api/ticker/"
-    currency_a = "USD"
-    currency_b = "BTC"
+    currency_a = "BTC"
+    currency_b = "USD"
     try:
         response = urllib2.urlopen(adress)
         bit = json.loads(response.read())
@@ -19,9 +19,9 @@ def update( name, settings, data ):
 
     if (name in data) == False:
         data[name] = dict()
-    if ("USD" in data) == False:
-        data[name]["USD"] = dict()
-        data[name]["USD"]["BTC"] = dict()
+    if ("BTC" in data) == False:
+        data[name]["BTC"] = dict()
+        data[name]["BTC"]["USD"] = dict()
     data[name][currency_a][currency_b]["average"] = (float(bit["high"])+float(bit["low"]))/2
     data[name][currency_a][currency_b]["last"] = float(bit["last"])
     data[name][currency_a][currency_b]["high"] = float(bit["high"])
@@ -39,5 +39,5 @@ def display( exchange_name , data, simple ):
             print "\t\t%s/%s Date: %s" % (f,v,data[exchange_name][f][v]["timestamp"].strftime("%Y-%m-%d %H:%M:%S"))
             print "\tLast: \t%f\t\tAverage:\t%f" % (data[exchange_name][f][v]["last"],data[exchange_name][f][v]["average"])
             if simple == False:
-                print "\tLow\t: %f\t\tHigh\t:\t%f" % (data[exchange_name][f][v]["low"],data[exchange_name][f][v]["high"])
+                print "\tLow: \t%f\t\tHigh:\t%f" % (data[exchange_name][f][v]["low"],data[exchange_name][f][v]["high"])
                 
