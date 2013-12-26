@@ -199,16 +199,21 @@ example:
       
     }
     
-unlike pools, exchanges have distinct apis so you can't add any in this file unless module for its api has been added to program
+unlike pools, exchanges have distinct apis so you can't add any other in this file unless module for its api has been added to program
 
 "update\_interval", "use", "display" and "simple\_info" usage same as in pools cfg
 
 aside from that only configurable things are:
   
   "estimate_mode" - which value will be used for estimating value in other currency, differs for exchanges
+  
     Cryptsy: last
+  
     BTC-E: average, last, low, high
+  
     Bitstamp: average, last, low, high
+    
+    Mt.Gox: average, last, low, high
     
     
       
