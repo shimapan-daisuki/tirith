@@ -8,7 +8,7 @@ def to_FIAT(value, a, b, exchanges, exchange_info ):
             if b in exchange_info[o][a]:
                 if (o in estimates) == False:
                     estimates[o] = dict()
-                estimates[o]["est"] = float(exchange_info[o][a][b][mode]*value)
+                estimates[o]["est"] = float(exchange_info[o][a][b].get(mode,0)*value)
                 estimates[o]["mode"] = mode
         #else:
            # estimates["Error:Not enough data to estimate."] = dict()

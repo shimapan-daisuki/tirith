@@ -33,7 +33,7 @@
         "adress":       "http://fst.zabmail.ru/",
         "webapi":       "alt",
         "api_key":      "12cb383e95ede387b1d60a0c3bd1f062edaaee10a2aafbf00d647b1ca48ae57c",
-	"estimates":	["USD", "BTC"],
+	"estimates":	["USD", "BTC", "LTC"],
 	"estimates2":	["paid_out"]
         }
     }

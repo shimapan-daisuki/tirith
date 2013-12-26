@@ -8,7 +8,7 @@ class UTC(datetime.tzinfo):
     """UTC"""
 
     def utcoffset(self, dt):
-        return 0
+        return None
 
     def tzname(self, dt):
         return "UTC"

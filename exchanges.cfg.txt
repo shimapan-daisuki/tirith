@@ -8,12 +8,10 @@
         "display":          true,
         "simple_info":      true,
         "estimate_mode":    "last",
-	"FIAT":  [
-		"USD", "EUR"
-		],
-        "coins": [
-            "BTC", "LTC"
-            	],
+	"rates":  {
+		"1":{"BTC":"USD"},
+		"2":{"BTC":"EUR"}
+		},
  	"webapi":           "BTC-E"
         },
     "Mt.Gox":
@@ -21,25 +19,20 @@
         "display":          true,
         "simple_info":      false,
 	"estimate_mode":    "average",
-        "FIAT":  [
-		"JPY"
-		],
-        "coins": [
-            "BTC"
-            	],
+	"rates":  {
+		"1":{"BTC":"JPY"},
+		"2":{"BTC":"USD"}
+		},
 	"webapi":           "Mt.Gox"
         },
     "Bitstamp":
         {	
         "display":          true,
-        "simple_info":      true,
-	"estimate_mode":    "last",
-        "FIAT":  [
-		"USD"
-		],
-        "coins": [
-            "BTC"
-            	],
+        "simple_info":      false,
+	"estimate_mode":    "low",
+        "rates":  {
+		"1":{"BTC":"USD"}
+		},
 	"webapi":           "Bitstamp"
         },
     
@@ -48,7 +41,8 @@
         "display":          true,
         "simple_info":      true,
 	"rates":  {
-		"FST":"BTC", "LTC":"BTC"
+		"1":{"FST":"BTC"},
+		"2":{"FST":"LTC"}
 		},
 	"webapi":           "Cryptsy",
 	"estimate_mode":    "last"

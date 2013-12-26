@@ -2,41 +2,45 @@
 #passed dictionary /data/ under pools name
 import urllib2, datetime
 import json
-btcef_pairs = [["btc", "usd"],["btc", "rur"],["btc", "eur"],["ltc", "usd"],["ltc", "rur"],["ltc", "eur"],["nmc", "usd"],["nvc", "usd"],["ppc", "usd"]]
 
 def update( name, settings, data ):
 #gettin json for every pair and adding it to dict /data/
     if (name in data) == False:
         data[name] = dict()
-    for p in range(len(btcef_pairs)):
-        currency_a = btcef_pairs[p][0]
-        currency_b = btcef_pairs[p][1]
-        currency_a = currency_a.upper()
-        currency_b = currency_b.upper()
-        if (currency_a in settings["coins"]) or (currency_b in settings["coins"]):
-            adress = "https://btc-e.com/api/2/"+btcef_pairs[p][0]+"_"+btcef_pairs[p][1]+"/ticker/"
+        
+        #for every rate set to be displayed
+        for p in settings["rates"]:
+            a = p
+            for c in settings["rates"][p]:
+                a = c
+                b = settings["rates"][p][a]
+
+            if (a in data[name]) == False:
+                data[name][a] = dict()
+            #then we look further for the second currency
+            if (b in data[name][a]) == False:
+                data[name][a][b] = dict()
             try:
+                curr_a = str(a)
+                curr_b = str(b)
+                adress = "https://btc-e.com/api/2/"+curr_a.lower()+"_"+curr_b.lower()+"/ticker/"
                 response = urllib2.urlopen(adress)
                 btcef = json.loads(response.read())
                 response.close()
+                data[name][a][b]["average"] = float(btcef["ticker"]["avg"])
+                data[name][a][b]["last"] = float(btcef["ticker"]["last"])
+                data[name][a][b]["high"] = float(btcef["ticker"]["high"])
+                data[name][a][b]["low"] = float(btcef["ticker"]["low"])
+                data[name][a][b]["timestamp"] = datetime.datetime.fromtimestamp( int(btcef["ticker"]["updated"]))
+                data[name][a][b]["volume"] = float(btcef["ticker"]["vol"])
+                data[name][a][b]["volume_currency"] = float(btcef["ticker"]["vol_cur"])
+
             except:
-                print "Ran into problem while trying to update %s %s/%s info, will try again at next update interval" % (name,currency_a,currency_b)
+                print "Ran into problem while trying to update %s %s/%s info, will try again at next update interval" % (name,a,b)
                 return -1                
-            if (currency_b in settings["FIAT"]):
-                if (currency_a in data["BTC-E"]) == False:
-                    data["BTC-E"][currency_a] = dict()
-                    
-                if (currency_b in data["BTC-E"][currency_a]) == False:
-                    data["BTC-E"][currency_a][currency_b] = dict()
-                
-                data["BTC-E"][currency_a][currency_b]["average"] = float(btcef["ticker"]["avg"])
-                data["BTC-E"][currency_a][currency_b]["last"] = float(btcef["ticker"]["last"])
-                data["BTC-E"][currency_a][currency_b]["high"] = float(btcef["ticker"]["high"])
-                data["BTC-E"][currency_a][currency_b]["low"] = float(btcef["ticker"]["low"])
-                data["BTC-E"][currency_a][currency_b]["timestamp"] = datetime.datetime.fromtimestamp( int(btcef["ticker"]["updated"]))
-                data["BTC-E"][currency_a][currency_b]["volume"] = float(btcef["ticker"]["vol"])
-                data["BTC-E"][currency_a][currency_b]["volume_currency"] = float(btcef["ticker"]["vol_cur"])
-                
+           
+           
+                              
 
 #closing connection
         
