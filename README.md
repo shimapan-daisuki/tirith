@@ -9,6 +9,7 @@ mardilv aka shimapan.daisuki:
 - btc:    1PkCFatY7jgxY8BFaZe1YeL1baa8G7tVuR
 - ltc:    LdSgAUcFed3szKGSmYQgFcFJvw9HJyAsHP
 
+Contact: shimapan.daisuki@gmail.com
 
 features
 ========
