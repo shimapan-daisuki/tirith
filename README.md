@@ -25,7 +25,7 @@ now:
   - any pool with site of this type: example: http://fst.zabmail.ru/ [ alt ]
 
 planned:
-- adding support for not yed added pools and exchanges
+- adding support for not yet added pools and exchanges
 - notifications/alarms
 - usb lcd displays support
 - GUI
