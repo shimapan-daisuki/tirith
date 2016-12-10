@@ -5,7 +5,7 @@ Python console program for monitoring statistics from cryptocurrency pools and e
 
 Found this useful/helpful? You can donate here:
 
-mardilv aka shimapan.daisuki:
+shimapan.daisuki:
 - btc:    1PkCFatY7jgxY8BFaZe1YeL1baa8G7tVuR
 - ltc:    LdSgAUcFed3szKGSmYQgFcFJvw9HJyAsHP
 
